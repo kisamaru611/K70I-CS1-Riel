@@ -1,151 +1,144 @@
-def Max_Of_Two(a, b):
-  if a > b:
-    return a
+def f(x, y):
+  if x > y:
+    return x
   else:
-    return b
+    return y
 
-
-def Max_Of_Int(a, b) ->int:
-  return [a if a>b else b]
-a, b = map(float, input().split())
-print(*Max_Of_Int(a, b))
+def g(x, y) ->int:
+  return [x if x>y else y]
+u, v = map(float, input().split())
+print(*g(u, v))
 
 #1
 
-def swap(a, b):
-  a, b = b, a
-  return a, b
-swap(3,4)
+def h(x, y):
+  x, y = y, x
+  return x, y
+h(3,4)
 
 #2
 
-def check(x):
-  for i in range(2, x):
-    if x%i == 0:
+def p(x):
+  if x < 2:
+    return False
+  for i in range(2, int(x**0.5) + 1):
+    if x % i == 0:
       return False
-  return x >1
+  return True
+
 #3
 
-def check(n):
-  count = 0
-  if n == 0: return False
-  for i in range(1,n):
-    if n%i == 0:
-      count+=i
-  return count == n
-def PerfectNumbers():
-    assert check(6) == True, "The max of 34 and 56 should be 56"
+def q(x):
+  if x == 0: return False
+  s = sum([i for i in range(1, x // 2 + 1) if x % i == 0])
+  return s == x
+
+def r():
+    assert q(6) == True, "The max of 34 and 56 should be 56"
     return True
-if PerfectNumbers():
+if r():
     print("True")
 
-  #4
+#4
 
-def nhapso():
-  global n
-  global k
-  n = input()
-  k = int(input())
-def check(n, k):
-  for i in range(len(n)):
-    if int(n[i]) == k:
+def s():
+  global u
+  global v
+  u = input()
+  v = int(input())
+
+def t(x, y):
+  for i in range(len(x)):
+    if int(x[i]) == y:
       return i
   return -1
-def ktra():
-    assert check([1, 2, 3, 4, 5, -6, 7, 8, 19, 1, 2, 3, 4, 5], 5) == 4, "Test1 is wrong"
+
+def k():
+    assert t([1, 2, 3, 4, 5, -6, 7, 8, 19, 1, 2, 3, 4, 5], 5) == 4, "Test1 is wrong"
 if __name__ == "__main__":
-    ktra()
+    k()
     print("pass")
+
 #5
 
 # cách 1
-def giaithua(n):
-  count = 1
-  if n == 0:
+def f1(x):
+  if x == 0 or x == 1:
     return 1
-  for i in range(1,n+1):
-    count = count*i
-  return count
-  print(count)
-giaithua(3)
+  return x * f1(x - 1)
+f1(3)
+
 # cách 2
-def giaithua(n):
-  count = 1
-  if n == 0 or n == 1:
-    return 1
-  while n >1:
-    count = count*n
-    n -=1
-  return count
+def f2(x):
+  import math
+  return math.factorial(x)
 
-
-def kiemtra():
-  assert giaithua(3) == 6, "Tese wrong"
+def k2():
+  assert f1(3) == 6, "Tese wrong"
 
 if __name__ == "__main__":
-    kiemtra()
+    k2()
     print("All tests passed!")
 
 #6
 
-def caculator(a, b, dau):
-  if dau == "+":
-    return a+b
-  elif dau == "-":
-    return a-b
-  elif dau == "*":
-    return a*b
-  elif dau == "/":
-      if b == 0:
-        if a == 0:
+def c(x, y, z):
+  if z == "+":
+    return x+y
+  elif z == "-":
+    return x-y
+  elif z == "*":
+    return x*y
+  elif z == "/":
+      if y == 0:
+        if x == 0:
           print("Lỗi: Toán tử không xác định")
           return None
         return "Lỗi: Không thể chia cho không"
-      return a/b
+      return x/y
 
-
-
-caculator(0, 0, "/")
+c(0, 0, "/")
 
 #7
 
-a, b = map(int, input().split())
-def hamming(a, b):
-  return(bin(a^b).count("1"))
-hamming(a, b)
+m, n = map(int, input().split())
+def b(x, y):
+  return(bin(x^y).count("1"))
+b(m, n)
 
 #8
 
-def tong(n):
-  count = 0
-  while n>0:
-    count += n%10
-    n = n //10
-  return count
-def kiemtra():
-  assert tong(34) == 7, "Test wrong"
+def d(x):
+  return sum(int(i) for i in str(x))
+
+def k3():
+  assert d(34) == 7, "Test wrong"
 if __name__ == "__main__":
-    kiemtra()
+    k3()
     print("All tests passed!")
+
 #9
 
-a, b = input().split()
-list = [0]*len(a)
+u, v = input().split()
+z = [0]*len(u)
 
-def find_pos(word, char):
-  list_pos = []
-  for i in range(len(word)):
-    if word[i] == char:
-      list_pos.append(i)
-  return list_pos
+def a(x, y):
+  r = []
+  for i, j in enumerate(x):
+    if j == y:
+      r.append(i)
+  return r
 
-def word_mapping(a, b):
-  for i in range(0, len(a)):
-    if list[i] == 0:
-      if find_pos(a, a[i]) != find_pos(b, b[i]):
-        return False
-      for j in find_pos(a, a[i]):
-        list[j] = 1
-  return True 
-print(word_mapping(a, b))
+def m_1(x, y):
+  if len(x) != len(y): return False
+  d1, d2 = {}, {}
+  for i, j in zip(x, y):
+    if i not in d1 and j not in d2:
+      d1[i] = j
+      d2[j] = i
+    elif d1.get(i) != j or d2.get(j) != i:
+      return False
+  return True
+print(m_1(u, v))
+
 #10
