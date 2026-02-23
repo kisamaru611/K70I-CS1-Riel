@@ -1,25 +1,25 @@
 
 
 #1
-def divide(a, b):
+def div(a, b):
   try:
     return f"{a/b:.2f}"
   except ZeroDivisionError:
-    return "Loi chia khong"
-divide(3, 0)
+    return "Loi chia 0"
+div(3, 0)
 
 #2
-def get_item(lst, idx):
+def get__item(lst, idx):
   try:
     return lst[idx]
   except IndexError:
-    return "Truy cap chi so sai"
+    return "Truy cap sai chi so"
 my_list = list(input().split())
 n = int(input())
-get_item(my_list, n)
+get__item(my_list, n)
 
 #3
-def check(a):
+def checking(a):
     lst = set()
     while a != 1 and a not in lst:
       lst.add(a)
@@ -30,7 +30,7 @@ def check(a):
       return True
 a = int(input())
 try:
- if check(a):
+ if checking(a):
    print("a la so hanh phuc")
 except ValueError:
    print("a khong la so hanh phuc")
@@ -42,7 +42,7 @@ def tong(a, b):
   except:
    print("Nhap sai kieu du lieu")
   finally:
-    print("Kết thúc chương trình")
+    print("Kết thúc")
 x, y = input().split()
 tong(x, y)
 
@@ -71,46 +71,46 @@ n = float(input())
 can(n)
 
 #7
-def tuoi(n):
+def age(n):
   try:
     print(2025 - int(n))
   except ValueError or n < 0:
-    print("Tuoi khong hop le")
+    print("Tuoi ko hop le")
 n = input()
-tuoi(n)
+age(n)
 
 #8
-def check(n):
+def checking(n):
   try:
     n = list(n)
     if n[1] == "TXT" or n[1] == "txt" or n[1] == "zip":
       print("Doc file thanh cong")
   except:
-    print("Flie khong hop le")
+    print("Flie ko hop le")
 file1 = input().split(".")
-check(file1)
+checking(file1)
 
 #9
-def tran(n):
+def Tran(n):
   try:
     a = int(n)
     print(a)
   except:
-    print("Chuoi khong hop le")
+    print("Chuoi ko hop le")
 
 #10
-def check(n):
+def checking(n):
   lst = []
   for i in range(n):
     k = int(input())
     lst.append(k)
-  tong = 0
+  Sum = 0
   if len(set(lst)) == len(lst):
     for i in lst:
-      tong += i
-    return tong
+      Sum += i
+    return Sum
   else:
-    return "Mang khong hop le"
+    return "Mang ko hop le"
 n = int(input())
-check(n)
+checking(n)
 
