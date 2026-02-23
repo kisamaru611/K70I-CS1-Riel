@@ -1,307 +1,272 @@
 
 #W4A1
-n=int(input())
-s=0
-for i in range(n+1): s+=i
-print(s)
+x = int(input())
+print(x * (x + 1) // 2)
 
 #W4A2
-def prime(n):
-    if n==2 or n==3: return True
-    for i in range(2,int(n**0.5)+1):
-        if n%i==0: return False
+def f(a):
+    if a == 2 or a == 3: return True
+    for k in range(2, int(a**0.5) + 1):
+        if a % k == 0: return False
     return True
-n=int(input("Enter n: "))
-while n<=0:
-    n=int(input("n must be positive: "))
-print(prime(n))
+
+x = int(input("Enter n: "))
+while x <= 0:
+    x = int(input("n must be positive: "))
+print(f(x))
 
 #W4A3
-n=int(input())
-s=1
-for i in range(2,n+1): s*=i
-print(s)
+a = int(input())
+b = 1
+while a > 1:
+    b *= a
+    a -= 1
+print(b)
 
 #W4A4
-n=abs(int(input()))
-c=0
-while n>0:
-    n//=10
-    c+=1
-print(c)
+u = input()
+print(len(u.replace('-', '')))
 
 #W4A5
-arr=list(map(int,input().split()))
-s="I've found the meaning of life!" if 42 in arr else "It's a joke!"
-print(s)
+q = list(map(int, input().split()))
+w = "I've found the meaning of life!" if 42 in q else "It's a joke!"
+print(w)
 
 #W4A6
 import math
-def check(n):
-  for i in range(2, int(math.sqrt(n))+1):
-    if n%i == 0:
+def g(x):
+  for j in range(2, int(math.sqrt(x)) + 1):
+    if x % j == 0:
       return False
   return True
-a, b = map(int, input().split())
-tong = 0
-for i in range(a, b + 1):
-  if check(i):
-    tong += i
-print(tong)
+
+m, n = map(int, input().split())
+print(sum(k for k in range(m, n + 1) if g(k)))
 
 #W4A7
-def is_prime(b):
-    is_prime=[1]*(b+1)
-    is_prime[0]=is_prime[1]=0
-    i=2
-    while i*i<=b:
-        if is_prime[i]:
-            for j in range(i*i,b+1,i):
-                is_prime[j]=0
-        i+=1
-    return is_prime
-n=int(input())
-check=is_prime(n)
-for i in range(n,-1,-1):
-    if check[i] and n%i==0:
-        print(i)
+def h(x):
+    y = [1] * (x + 1)
+    y[0] = y[1] = 0
+    z = 2
+    while z * z <= x:
+        if y[z]:
+            for w in range(z * z, x + 1, z):
+                y[w] = 0
+        z += 1
+    return y
+
+a = int(input())
+b = h(a)
+for c in range(a, -1, -1):
+    if b[c] and a % c == 0:
+        print(c)
         break
 
 #W4A8
-def reverse(n):
-    res=0
-    while n>0:
-        res=res*10+n%10
-        n//=10
-    return res
-def palindrome(n):
-    c=0
-    while n!=reverse(n):
-        n+=reverse(n)
-        c+=1
-    return f'{c} {n}'
+def f2(x):
+    y = 0
+    while x != int(str(x)[::-1]):
+        x += int(str(x)[::-1])
+        y += 1
+    return f'{y} {x}'
 
-n=int(input())
-print(palindrome(n))
+z = int(input())
+print(f2(z))
 
 #W4A9
-def check(n):
-    i=int(n**0.5)
-    if i*i!=n: return False
-    digit=[]
-    for i in str(n):
-        if i not in digit:
-            digit.append(i)
+def g1(x):
+    y = int(x**0.5)
+    if y * y != x: return False
+    z = []
+    for w in str(x):
+        if w not in z:
+            z.append(w)
         else:
             return False
     return True
 
-n=int(input())
-for i in range(1,n+1):
-    if check(i):
-        print(i,end=' ')
+a = int(input())
+for b in range(1, a + 1):
+    if g1(b):
+        print(b, end=' ')
 
 #W4A10
-def collatz(n):
-    c=1
-    while n!=1:
-        n=n*3+1 if n&1 else n//2
-        c+=1
-    return c
-n=int(input())
-res=0
-x=0
-for i in range(1,n+1):
-    a=collatz(i)
-    if a>res:
-        x=i
-        res=a
-print(f'{x} {res}')
+def h1(x):
+    y = 1
+    while x != 1:
+        x = x * 3 + 1 if x & 1 else x // 2
+        y += 1
+    return y
+
+a = int(input())
+b = 0
+c = 0
+for d in range(1, a + 1):
+    e = h1(d)
+    if e > b:
+        c = d
+        b = e
+print(f'{c} {b}')
 
 #W4A11
-n=int(input())
-res=0
-for i in range(1,int(n**0.5)+1):
-    if n%i==0:
-        j=n//i
-        if not i&1: res+=1
-        if not j&1: res+=1
-print(res)
+x = int(input())
+y = 0
+for z in range(1, int(x**0.5) + 1):
+    if x % z == 0:
+        w = x // z
+        if not z & 1: y += 1
+        if not w & 1: y += 1
+print(y)
 
 #W4A12
-money,n=map(int,input().split())
-print(int(money*((1+0.7/100)**n)))
+u, v = map(int, input().split())
+print(int(u * ((1 + 0.7 / 100)**v)))
 
 #W4A13
-def sum_divisor(n):
-    s=1
-    for i in range(2,int(n**0.5)+1):
-        if n%i==0:
-            s+=(i+n//i)
-    return s
-a,b=map(int,input().split())
-print(sum_divisor(a)==b and sum_divisor(b)==a)
+def f3(x):
+    y = 1
+    for z in range(2, int(x**0.5) + 1):
+        if x % z == 0:
+            y += (z + x // z)
+    return y
+
+p, q = map(int, input().split())
+print(f3(p) == q and f3(q) == p)
 
 #W4A14
-def gcd(a,b):
-    while b!=0:
-        a,b=b,a%b
-    return a
+def f4(x, y):
+    if y == 0: return x
+    return f4(y, x % y)
 
-a,b=map(int,input().split())
-print(gcd(a,b))
+m, n = map(int, input().split())
+print(f4(m, n))
 
 #W4A15
-n,m=map(int,input().split())
-if m&1: print('Invalid')
+x, y = map(int, input().split())
+if y & 1: print('Invalid')
 else:
-    dog=(m-2*n)//2
-    chick=n-dog
-    print(chick,'' ,dog)
+    d = (y - 2 * x) // 2
+    c = x - d
+    print(c, '' , d)
 
 #W4A16
-for i in range(3,100,3):
-    if not i&1: print(i)
+for j in range(6, 100, 6):
+    print(j)
 
 #W4A17
-a=int(input())
-for i in range(1,6):
-    print(f'{a} x {i} = {a*i}',end="     ")
-    print(f'{a} x {i+5} = {a*(i+5)}',)
+u = int(input())
+for v in range(1, 6):
+    print(f'{u} x {v} = {u*v}', end="     ")
+    print(f'{u} x {v+5} = {u*(v+5)}',)
 
 #W4A18
-a,b=map(int,input().split())
-for i in range(1,min(a,b)+1):
-    if a%i==0 and b%i==0: print(i)
+x, y = map(int, input().split())
+for z in range(1, min(x, y) + 1):
+    if x % z == 0 and y % z == 0: print(z)
 
 #W4A19
-n=int(input())
-for i in range(2,n+1):
-    if not i&1: print(i)
+x = int(input())
+for y in range(2, x + 1, 2):
+    print(y)
 
 #W4A20
-n=int(input())
-if not n&(n-1): print(True)
+a = int(input())
+if not a & (a - 1): print(True)
 else: print(False)
 
 #W4A21
-n=int(input())
-s=0
-while n>0:
-    s+=n%10
-    n//=10
-print(s)
+b = input()
+print(sum(int(i) for i in b))
 
 #W4A22
-n=int(input())
-odd,even=0,0
-while n>0:
-    if (n%10)&1: odd+=1
-    else: even+=1
-    n//=10
-print("Odd: ",odd)
-print("Even: ",even)
+p = input()
+q = sum(int(i) % 2 != 0 for i in p)
+print("Odd: ", q)
+print("Even: ", len(p) - q)
 
 #W4A23
-n=int(input())
-s=0
-k=0
-while s<n:
-    k+=1
-    s+=k
-print(k-1)
+u = int(input())
+v = 0
+w = 0
+while v < u:
+    w += 1
+    v += w
+print(w - 1)
 
 #W4A24
-n=int(input())
-s=0
-k=0
-while s<=n:
-    k+=1
-    s+=(1/k)
-print(k)
-
-#W4A25
-n=0
-M,m=float('-inf'),float('inf')
-while n!=-1:
-    n=int(input())
-    if n>M: M=n
-    if n<m: m=n
-print("Max:" ,M)
-print("Min:",m)
-
-#W4A26
-n=int(input())
-a,b=1,1
-while b<=n:
-    a,b=b,a+b
-print(a)
-
-#W4A27
-s=input()
-c=0
-for i in range(len(s)):
-    if i==0 and s[0]!=' ' or (s[i-1]==' ' and s[i]!=' '):
-        c+=1
+a = int(input())
+b = 0
+c = 0
+while b <= a:
+    c += 1
+    b += (1 / c)
 print(c)
 
+#W4A25
+a = 0
+b, c = float('-inf'), float('inf')
+while a != -1:
+    a = int(input())
+    if a > b: b = a
+    if a < c: c = a
+print("Max:", b)
+print("Min:", c)
+
+#W4A26
+x = int(input())
+y, z = 1, 1
+while z <= x:
+    y, z = z, y + z
+print(y)
+
+#W4A27
+x = input()
+print(len(x.split()))
+
 #w4A28
-s=input()
-i=0
-while i<len(s) and s[i]==" ":
-    i+=1
-j=i
-while j<len(s) and s[j]!=" ":
-    j+=1
-print(s[i:j])
+x = input()
+y = x.split()
+print(y[0] if y else "")
 
 #W4A29
-a,b,c=map(int,input().split(","))
-print(a+b+c)
+x, y, z = map(int, input().split(","))
+print(x + y + z)
 
 #W4A30
-s=input()
-lst=[0]*3
-for i in s:
-    if i.islower(): lst[0]+=1
-    elif i.isupper():lst[1]+=1
-    elif i.isdigit(): lst[2]+=1
-print("Lower:",lst[0])
-print("Upper:",lst[1])
-print("Digit:",lst[2])
+x = input()
+c1, c2, c3 = 0, 0, 0
+for z in x:
+    c1 += z.islower()
+    c2 += z.isupper()
+    c3 += z.isdigit()
+print("Lower:", c1)
+print("Upper:", c2)
+print("Digit:", c3)
 
 #W4A31
-s=input()
-res=0
-for i in s:
-    if i.isdigit(): res+=int(i)
-print(res)
+x = input()
+print(sum(int(z) for z in x if z.isdigit()))
 
 #W4A32
-def strong_pass(s):
-    if len(s)<6: return False
-    lst=[0]*4
-    for i in s:
-        if i.isdigit(): lst[2]=1
-        elif i.isupper(): lst[1]=1
-        elif i.islower(): lst[3]=1
-        elif i!=' ': lst[0]=1
-    return not 0 in lst
+def f5(x):
+    if len(x) < 6: return False
+    y = [0] * 4
+    for z in x:
+        if z.isdigit(): y[2] = 1
+        elif z.isupper(): y[1] = 1
+        elif z.islower(): y[3] = 1
+        elif z != ' ': y[0] = 1
+    return not 0 in y
 
-s=input()
-print(strong_pass(s))
+a = input()
+print(f5(a))
 
 #W4A33
-n=int(input())
-n=list(str(n))
-i=len(n)-3
-while i>0:
-    n.insert(i,'.')
-    i-=3
-print(''.join(n))
+x = input()
+print(f"{int(x):,}".replace(',', '.'))
 
 #W4A34
-a=input()
-b=input()
-a=a.replace(b,'')
-print(a)
+x = input()
+y = input()
+x = x.replace(y, '')
+print(x)
