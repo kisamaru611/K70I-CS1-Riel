@@ -1,228 +1,159 @@
 
+
 #1
-chuoi = input().split()
-count = 0
-lst = []
-for i in chuoi:
-  if count != i:
-    count = i
-    lst.append(i)
-print(lst)
+a = input().split()
+b = []
+for i in range(len(a)):
+  if i == 0 or a[i] != a[i-1]:
+    b.append(a[i])
+print(b)
 
 #2
-chuoi = map(int, input().split())
-lst = []
-tong = 0
-for i in chuoi:
-  tong += i
-  lst.append(tong)
-print(lst)
+x = map(int, input().split())
+y = []
+t = 0
+for i in x:
+  t += i
+  y.append(t)
+print(y)
 
 #3
-numbers = tuple(map(int, input("Nhap day").split()))
-k = int(input())
-k = k % len(numbers)
-result = numbers[k:] + numbers[:k]
-print(result)
+t = tuple(map(int, input("Nhap day").split()))
+m = int(input())
+m = m % len(t)
+l = list(t)
+for _ in range(m):
+  l.append(l.pop(0))
+print(tuple(l))
 
 #4
-n = input().split()
-dic = {}
-for i in n:
-  k, v = i.split(":")
-  if k not in dic:
-    dic[k] = [v]
+s = input().split()
+d = {}
+for x in s:
+  u, v = x.split(":")
+  if u not in d:
+    d[u] = [v]
   else:
-    dic[k].append(v)
-print(dic)
+    d[u].append(v)
+print(d)
 
 #5
-n = list(map(int, input().split()))
-result = {
-    "positive" : sum(1 for i in n if i > 0),
-    "negative" : sum(1 for i in n if i < 0),
-    "zero" : sum(1 for i in n if i == 0),
-}
-print(result)
+arr = list(map(int, input().split()))
+p = 0
+am = 0
+z = 0
+for x in arr:
+  if x > 0: 
+    p += 1
+  elif x < 0: 
+    am += 1
+  else: 
+    z += 1
+kq = {"positive": p, "negative": am, "zero": z}
+print(kq)
 
 #6
-numbers = list(map, int(input("Nhap day").split()))
-tong = 0
-for i in numbers:
-  tong += i
-print(tong)
+ds = list(map(int, input("Nhap day").split()))
+s = 0
+for x in ds:
+  s += x
+print(s)
 
 #6
-tong = 0
-n = list(map(int, input().split()))
-for i in n:
-  tong += i
-print(tong)
+a = list(map(int, input().split()))
+print(sum(a))
 
 #7
-tple = tuple(input().split())
-lst = list(tple)
-lst = lst[::-1]
-print(tple[0],tple[len(tple)-1])
-print(tuple(lst))
+t = tuple(input().split())
+a = list(t)
+a.reverse()
+print(t[0], t[-1])
+print(tuple(a))
 
 #8
-n = list(input().split())
-dic = {}
-for i in n:
-  if i not in dic:
-    dic[i] = 1
+a = input().split()
+d = {}
+for x in a:
+  if x not in d:
+    d[x] = 1
   else:
-    dic[i] +=1
-print(dic)
+    d[x] += 1
+print(d)
 
 #9
-def dic(n):
-  dic = {}
-  for i in n:
-    k , v = i.split(":")
-    if i not in dic:
-      dic[k] = v
-  return dic
-dic1 = list(input().split())
-dic2 = list(input().split())
-new_dict = {}
-for i in dic(dic1).keys():
-  for j in dic(dic2).keys():
-    if i == j:
-      new_dict[i] = int(dic(dic1)[i]) + int(dic(dic2)[j])
-print(new_dict)
+def f(x):
+  d = {}
+  for i in x:
+    u, v = i.split(":")
+    d[u] = int(v)
+  return d
+a = input().split()
+b = input().split()
+d1 = f(a)
+d2 = f(b)
+c = {}
+for k in d1:
+  if k in d2:
+    c[k] = d1[k] + d2[k]
+print(c)
 
 #10
-lst = list(map(int, input().split()))
-k = int(input())
-result = set()
-for i in range(len(lst)):
-  for j in range(i+1, len(lst)):
-    if lst[i] + lst[j] == k:
-      result.add((lst[i], lst[j]))
-result1 = sorted(result)
-print(result1)
+a = list(map(int, input().split()))
+m = int(input())
+s = set()
+for i in range(len(a)):
+  for j in range(i+1, len(a)):
+    if a[i] + a[j] == m:
+      s.add((a[i], a[j]))
+kq = sorted(s)
+print(kq)
 
 #11
-day = tuple(map(int, input().split()))
-sochan = ()
-sole = ()
-for i in day:
-  if i % 2 == 0:
-    sochan += (i,)
+t = tuple(map(int, input().split()))
+c = []
+l = []
+for x in t:
+  if x % 2 == 0:
+    c.append(x)
   else:
-    sole += (i,)
-print(sochan)
-print(sole)
+    l.append(x)
+print(tuple(c))
+print(tuple(l))
 
 #12
-n = input().split()
-dic = {}
-for i in n:
-  k, v = i.split(" ")
-  if k not in dic:
-    dic[k] = v
-  for i in dic:
+a = input().split()
+d = {}
+for x in a:
+  u, v = x.split(":")
+  d[u] = v
+print(d)
 
 #13
-n = list(map(str, input().split()))
-dict = {}
-for i in range(1, len(n), 2):
-  dict[n[i]] = n[i-1]
-print(dict)
+a = input().split()
+d = {}
+for i in range(1, len(a), 2):
+  d[a[i]] = a[i-1]
+print(d)
 
 #14
-day1 = list(map(int, input().split()))
-day2 = list(map(int, input().split()))
-lst = []
-for i in day1:
-  for j in day2:
-    if i == j:
-      if i not in lst:
-        lst.append(i)
-print(lst)
+a1 = list(map(int, input().split()))
+a2 = list(map(int, input().split()))
+kq = []
+for x in a1:
+  if x in a2 and x not in kq:
+    kq.append(x)
+print(kq)
 
 #15
-dict = list(input().split())
-k = int(input())
-new_dict = {}
-for i in range(1, len(dict), 2):
-  if int(dict[i]) > k:
-    new_dict[dict[i-1]] = dict[i]
-print(new_dict)
+a = input().split()
+m = int(input())
+d = {}
+for i in range(1, len(a), 2):
+  if int(a[i]) > m:
+    d[a[i-1]] = a[i]
+print(d)
 
 #17
-n = int(input("Nhap so hang"))
-ma_tran = []
-for i in range(n):
-  row = []
-  for j in range(n):
-    a = int(input())
-    row.append(a)
-  ma_tran.append(row)
-for row in ma_tran:
-  for i in row:
-    print(f"{i:4d}", end="")
-  print()
-for i in range(n):
-  for j in range(n):
-    if i == j:
-      print(ma_tran[i][j], end=" ")
-
-#16
-n = int(input("Nhap so hang"))
-m = int(innp("Nhap so cot"))
-ma_tran = []
-for i in range(n):
-  row = []
-  for j in range(m):
-    a = int(input())
-    row.append(a)
-  ma_tran.append(row)
-for row in ma_tran:
-  for i in row:
-    print(f"{item:4d}", end="")
-
-#18
-n, m, k= map(int, input("Nhap so hang cot k").split())
-ma_tran = []
-for i in range(n):
-  row = []
-  for j in range(m):
-    a = int(input())
-    row.append(a)
-  ma_tran.append(row)
-tong = 0
-for i in range(n):
-  tong += ma_tran[i][k-1]
-print(tong)
-
-#19
-lst = list(map(int, input().split()))
-so_max = 0
-for i in lst:
-  if i > so_max:
-    so_max = i
-print(so_max)
-
-#20
-def check(m, n):
-  for i in range(len(m)- 1):
-    if m[i] == n:
-      return i+1
-    else:
-      return -1
-lst = list(map(int, input().split()))
-k = int(input())
-check(lst, k)
-
-#21
-lst = input().split()
-dict = {}
-for i in range(len(lst)- 1):
-  if lst[i] not in dict:
-    dict[lst[i]] = (i,)
-  else:
-    dict[lst[i]] += (i,)
-print(dict)
+x = int(input("Nhap so hang"))
+mt = []
+for i
